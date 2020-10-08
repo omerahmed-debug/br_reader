@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from capture import Capture
-
+from django.http import HttpResponseRedirect
+from br_reader_app.models import Reading
+from br_reader_app.capture import Capture
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    readings = Reading.objects.all().order_by('-read_at')[:48]
+    return render(request, 'index.html', {'readings': readings})
 
 def read(request):
- #   task()
-    val = 2
-    return HttpResponse("Barometer Reading: %s" % val)
+    capturer = Capture()
+    capturer.read_and_save()
+    return HttpResponseRedirect('/')

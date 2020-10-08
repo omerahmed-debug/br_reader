@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title> Barometric Pressure Reading App</title>
+		<title> Atmospheric Readings </title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 	<body>
-		<h1>Barometric Pressure Reading App</h1>
+		<div class="container-fluid mt-5">
+			<div class="breadcrumb-item active text-center">
+				<h2>Atmospheric Readings</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-2 col-md-12">
+					<a type="button" class="btn btn-success text-white btn-block" href="read">
+						Capture New Reading
+					</a>
+				</div>
+				<div class="col">
+					<table class="table">
+					  <thead class="thead-inverse">
+						<tr>
+						  <th>Date/Time</th>
+						  <th>Pressure</th>
+						  <th>Humidity</th>
+						  <th>Temprature</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						{% for reading in readings %}
+						  <tr>
+							<td>
+								{{ reading.read_at }}
+							</td>
+							<td class="align-middle">
+								{{ reading.pressure }}
+							</td>
+							<td class="align-middle">
+								{{ reading.humidity }}
+							</td>
+							<td class="align-middle">
+								{{ reading.temprature }}
+							</td>
+						  </tr>
+						{% endfor %}
+					  </tbody>
+					</table>
+				</div>
+			</div>
+		  </div>
 	</body>
 </html>
 
