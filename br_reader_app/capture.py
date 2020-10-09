@@ -23,7 +23,7 @@ class Capture:
     def read(self):
         # first initialize the connection
         self.init()
-        ret_val = {'Pressure': 0, 'Humidity': 0, 'Temprature': 0}
+        ret_val = {'Pressure': 0, 'Humidity': 0, 'Temperature': 0}
         
         # Read data: Usage- Cmd Line: 26 bytes
         line = self.ser.read(26)
@@ -40,7 +40,7 @@ class Capture:
         if datalist[0] == 'b\'P' or datalist[0] == 'b\'\\x00P' or datalist[0] == 'b\'\\rP':
             ret_val['Pressure'] = int(datalist[2])
             ret_val['Humidity'] = str(datalist[4])
-            ret_val['Temprature'] = float((datalist[6])[:6])
+            ret_val['Temperature'] = float((datalist[6])[:6])
         
         # Display readings
         print(ret_val)
@@ -53,7 +53,7 @@ class Capture:
         reading = Reading()
         reading.pressure = float(read_value['Pressure'])
         reading.humidity = float(read_value['Humidity'])
-        reading.temprature = float(read_value['Temprature'])
+        reading.temperature = float(read_value['Temperature'])
         reading.save()
 
     def sleep(self, msg, length):

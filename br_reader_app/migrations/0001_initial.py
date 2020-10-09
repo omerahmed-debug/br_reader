@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('pressure', models.FloatField(blank=True, null=True)),
                 ('humidity', models.FloatField(blank=True, null=True)),
-                ('temprature', models.FloatField(blank=True, null=True)),
+                ('temperature', models.FloatField(blank=True, null=True)),
                 ('read_at', models.DateTimeField(auto_now_add=True, null=True)),
             ],
         ),
