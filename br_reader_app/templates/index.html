@@ -7,18 +7,41 @@
 	<body>
 		<div class="container-fluid mt-5">
 			<div class="row">
-				<div class="col-md-2 col-sm-12"></div>
-				<div class="col">
-					<div class="breadcrumb-item active text-center">
-						<h2>Atmospheric Readings</h2>
-					</div>
-				</div>
 				<div class="col-md-2 col-sm-12">
 					<a type="button" class="btn btn-success text-white btn-block" href="read">
 						Capture New Reading
 					</a>
 				</div>
+				<div class="col">
+					<div class="breadcrumb-item active text-center">
+						<h2>Atmospheric Readings</h2>
+						<h6 class="text-success"><b>EMC and Product Safety Compliance</b></h6>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-12">
+					<a type="button" class="btn btn-info text-white btn-block" href="read">
+						Show Reading History
+					</a>
+				</div>
 			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-4 col-sm-12 text-center">
+					<b>Calibration ID: </b>XEMC0106 <br>
+					<b>Last Cal: </b>12/10/2019 <br>
+					<b>Cal Due: </b>12/10/2021
+				</div>
+				<div class="col-md-4 col-sm-12 text-center">
+					<b>IEC 61000-4-2:2008 ENV CONDITIONS:</b><br>
+					<b>Bar PRES: </b>860 - 1060 mbar <br>
+					<b>HUMID: </b>30-60%
+				</div>
+				<div class="col-md-4 col-sm-12 text-center">
+					<b>S/N: </b>192694987
+				</div>
+			</div>
+			<hr>
+			<h4>{{ all ? 'Showing All History Readings' : 'Showing Last 48 Readings'}}</h4>
 			<div class="row">
 				<div class="col">
 					<table class="table">
@@ -54,4 +77,3 @@
 		  </div>
 	</body>
 </html>
-
