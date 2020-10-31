@@ -41,7 +41,11 @@
 				</div>
 			</div>
 			<hr>
-			<h4>{{ all ? 'Showing All History Readings' : 'Showing Last 48 Readings'}}</h4>
+			{% if all % }
+				<h4>Showing All History Readings</h4>
+			{% else %}
+				<h4>Showing Last 48 Readings</h4>
+			{% endif %}
 			<div class="row">
 				<div class="col">
 					<table class="table">
