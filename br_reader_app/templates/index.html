@@ -19,9 +19,6 @@
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-12">
-					<a type="button" class="btn btn-info text-white btn-block" href="history">
-						Show Reading History
-					</a>
 				</div>
 			</div>
 			<hr>
@@ -46,7 +43,7 @@
 				{% if date_picker %}
 					<div class="col-md-6">
 						<span class=float-right>
-							<form action="history" method="GET" id="form">
+							<form action="" method="GET" id="form">
 								<label for="date_picker"><b><h5>Select Date: </h5></b></label>
 								<input type='date' id="date_picker" name="date_picker" onchange="checkAndSubmit()" value="{{ date_picker }}">
 							</form>

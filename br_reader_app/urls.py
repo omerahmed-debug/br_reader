@@ -1,8 +1,11 @@
 from django.urls import path
+from django.conf.urls import url
+from django.views.generic.base import RedirectView
 from . import views
 
 urlpatterns = [
         path('', views.index, name='index'),
         path('read', views.read, name='read'),
-        path('history', views.history, name='history')
+        url(r'^.*$', RedirectView.as_view(url='/', permanent=False), name='index')
+
 ]

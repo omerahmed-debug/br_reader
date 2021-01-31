@@ -8,15 +8,6 @@ import datetime
 
 # Create your views here.
 def index(request):
-    readings = Reading.objects.all().order_by('-read_at')[:48]
-    return render(request, 'index.html', {'readings': readings, 'table_label': 'Showing Last 48 Readings'})
-
-def read(request):
-    capturer = Capture()
-    capturer.read_and_save()
-    return HttpResponseRedirect('/')
-
-def history(request):
     if 'date_picker' in request.GET:
         selectedDate = request.GET['date_picker']
     else:
@@ -28,3 +19,8 @@ def history(request):
     formattedDate = st.strftime('%A, %d %b %Y')
     readings = Reading.objects.filter(read_at__range=[st, ed]).order_by('-read_at')
     return render(request, 'index.html', {'readings': readings, 'table_label': f'Showing Readings for {formattedDate}', 'date_picker': selectedDate})
+
+def read(request):
+    capturer = Capture()
+    capturer.read_and_save()
+    return HttpResponseRedirect('/')
