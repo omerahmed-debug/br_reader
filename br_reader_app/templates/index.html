@@ -41,7 +41,13 @@
 				</div>
 			</div>
 			<hr>
-			<h4>{{ table_label }}</h4>
+			<div class="row">
+				<div class="col-md-6"><h4>{{ table_label }}</h4></div>
+				<div class="col-md-6 align-right">
+					<label for="date-picker"><b>Select Date: </b></label>
+					<input type='date' id="date-picker" name="date-picker">
+				</div>
+			</div>
 			<div class="row">
 				<div class="col">
 					<table class="table">
@@ -75,5 +81,11 @@
 				</div>
 			</div>
 		  </div>
+	<script>
+		const datePicker = document.querySelector('#date-picker');
+		datePicker.addEventListener('change', (event) => {
+			alert('Date Changed')
+		});
+	</script>
 	</body>
 </html>
