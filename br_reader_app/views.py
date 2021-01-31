@@ -25,5 +25,6 @@ def history(request):
     ed = datetime.datetime.strptime(selectedDate, '%Y-%m-%d').replace(hour=23, minute=59, second=59)
     st = make_aware(st)
     ed = make_aware(ed)
+    formattedDate = st.strftime('%A, %d %b %Y')
     readings = Reading.objects.filter(read_at__range=[st, ed]).order_by('-read_at')
-    return render(request, 'index.html', {'readings': readings, 'table_label': 'Showing All History Readings', 'date_picker': selectedDate})
+    return render(request, 'index.html', {'readings': readings, 'table_label': f'Showing Readings for {formattedDate}', 'date_picker': selectedDate})

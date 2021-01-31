@@ -46,9 +46,9 @@
 				{% if date_picker %}
 					<div class="col-md-6">
 						<span class=float-right>
-							<form action="history" method="GET">
+							<form action="history" method="GET" id="form">
 								<label for="date_picker"><b><h5>Select Date: </h5></b></label>
-								<input type='date' id="date_picker" name="date_picker" onchange="this.form.submit()" value="{{ date_picker }}">
+								<input type='date' id="date_picker" name="date_picker" onchange="checkAndSubmit()" value="{{ date_picker }}">
 							</form>
 						</span>
 					</div>
@@ -86,6 +86,15 @@
 					</table>
 				</div>
 			</div>
-		  </div>
+		</div>
+		<script>
+			function checkAndSubmit() {
+				const datePickerValue = document.getElementById('date_picker').value;
+				if (datePickerValue) {
+					const form = document.getElementById('form');
+					form.submit();
+				}
+			}
+		</script>
 	</body>
 </html>
