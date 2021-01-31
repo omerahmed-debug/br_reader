@@ -43,10 +43,16 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-6"><h4>{{ table_label }}</h4></div>
-				<div class="col-md-6 align-right">
-					<label for="date-picker"><b>Select Date: </b></label>
-					<input type='date' id="date-picker" name="date-picker">
-				</div>
+				{% if date_picker %}
+					<div class="col-md-6">
+						<span class=float-right>
+							<form action="history" method="GET">
+								<label for="date_picker"><b><h5>Select Date: </h5></b></label>
+								<input type='date' id="date_picker" name="date_picker" onchange="this.form.submit()" value="{{ date_picker }}">
+							</form>
+						</span>
+					</div>
+				{% endif %}
 			</div>
 			<div class="row">
 				<div class="col">
@@ -81,11 +87,5 @@
 				</div>
 			</div>
 		  </div>
-	<script>
-		const datePicker = document.querySelector('#date-picker');
-		datePicker.addEventListener('change', (event) => {
-			alert('Date Changed')
-		});
-	</script>
 	</body>
 </html>
